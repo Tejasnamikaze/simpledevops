@@ -1,0 +1,105 @@
+Absolutely! Here's a clear explanation of each Git command you've encountered and used so far:
+
+---
+
+## 🔍 `git remote -v`
+
+### ✅ What it does:
+
+Shows all the **remotes (URLs)** connected to your local Git repo.
+
+### 💬 Example output:
+
+```
+origin  https://github.com/Tejasnamikaze/simpledevops.git (fetch)
+origin  https://github.com/Tejasnamikaze/simpledevops.git (push)
+```
+
+This tells you:
+
+* **`origin`** is the name of the remote.
+* You can **pull (fetch)** from and **push** to this URL.
+
+---
+
+## 🔧 `git remote add origin <URL>`
+
+### ✅ What it does:
+
+Links your **local Git repository** to a **remote GitHub repository** named `origin`.
+
+### 🧠 Why it matters:
+
+Without this link, Git doesn’t know where to send your code when you run `git push` or get updates via `git pull`.
+
+### 💬 Example:
+
+```bash
+git remote add origin https://github.com/Tejasnamikaze/simpledevops.git
+```
+
+This means your local repo will push/pull from that GitHub URL.
+
+---
+
+## 🔄 `git pull --rebase origin main`
+
+### ✅ What it does:
+
+Pulls the latest changes from the **`main` branch** of the `origin` remote and **re-applies your local commits on top**.
+
+### 💡 Why use `--rebase`?
+
+* Keeps history clean by avoiding unnecessary merge commits.
+* Ensures your changes appear **after** the remote ones, like a timeline.
+
+### 💬 Without `--rebase`, you’d get a merge commit, which clutters history.
+
+---
+
+## 🚀 `git push -u origin main`
+
+### ✅ What it does:
+
+Pushes your local `main` branch to the remote (`origin`) and **sets it as the default upstream** branch.
+
+### 🧠 What’s "upstream"?
+
+Once set, Git knows:
+
+* Where to push when you type just `git push`
+* Where to pull from when you type just `git pull`
+
+So in the future, you can simply do:
+
+```bash
+git push
+git pull
+```
+
+without needing to specify branch and remote every time.
+
+---
+
+## 🛠 Bonus: `git config --global credential.helper store`
+
+### ✅ What it does:
+
+Stores your Git credentials (username/token) **permanently** so you don’t have to type them every time.
+
+Use it only if you're OK with storing the token in plain text on your machine:
+
+```bash
+git config --global credential.helper store
+```
+
+For more secure storage (OS-integrated), you can use:
+
+* macOS: `osxkeychain`
+* Windows: `manager-core`
+* Linux: `libsecret`
+
+---
+
+Would you like a simple flowchart or cheat sheet for typical Git workflows?
+
