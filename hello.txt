@@ -1,2 +1,11 @@
 
 hello world
+
+git log --graph
+git diff
+git revert commitid
+git remote -v
+git log --grep=" "
+git status
+git mv .\secondexample firstexample
+git doesnt keep track of empty folders .gitkeep a file in that empty folder
